@@ -673,7 +673,17 @@ function! s:BEBuildBufferList()
         else
             let type = (g:bufExplorerShowRelativePath) ? "relativename" : "fullname"
             let path = buf[type]
-            let line .= path
+
+            if g:bufExplorerPathNameCount
+                let pathArray = split(path, "/")
+                let n = g:bufExplorerPathNameCount
+                while n > 0
+                    let line .= get(pathArray, -n) . "/"
+                    let n = n - 1
+                endwhile
+            else 
+                let line .= path
+            endif 
         endif
 
         let pads = (g:bufExplorerShowUnlisted) ? s:allpads : s:listedpads

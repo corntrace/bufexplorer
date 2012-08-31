@@ -187,6 +187,8 @@ To control whether to split out the path and file name or not, use: >
   let g:bufExplorerSplitOutPathName=1  " Split the path and file name.
   let g:bufExplorerSplitOutPathName=0  " Don't split the path and file
                                        " name.
+  let g:bufExplorerPathNameCount=3     " Display last 3 parts of the filename
+
 The default is to split the path and file name.
 
                                                       *g:bufExplorerSplitRight*
