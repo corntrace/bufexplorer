@@ -183,7 +183,10 @@ function! s:BEActivateBuffer()
   elseif empty(l) || index(l, b) == -1
     " Add new buffer to this tab buffer list
     let l = add(l, b)
-    let s:tabSpace[tabpagenr()] = l
+
+    if len(s:tabSpace) > tabpagenr()
+      let s:tabSpace[tabpagenr()] = l
+    endif
 
     if g:bufExplorerOnlyOneTab == 1
       " If a buffer can only be available in 1 tab page
